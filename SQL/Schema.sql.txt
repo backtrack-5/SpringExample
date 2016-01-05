@@ -1,0 +1,117 @@
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_refresh_token](
+	[token_id] [nvarchar](max) NULL,
+	[token] [varbinary](max) NULL,
+	[authentication] [varbinary](max) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_code](
+	[code] [varchar](256) NULL,
+	[authentication] [varbinary](1) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_client_token](
+	[token_id] [varchar](256) NULL,
+	[token] [varbinary](1) NULL,
+	[authentication_id] [varchar](256) NOT NULL,
+	[user_name] [varchar](256) NULL,
+	[client_id] [varchar](256) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[authentication_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_client_details](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[client_id] [varchar](256) NOT NULL,
+	[resource_ids] [varchar](256) NULL,
+	[client_secret] [varchar](256) NULL,
+	[scope] [varchar](256) NULL,
+	[authorized_grant_types] [varchar](256) NULL,
+	[web_server_redirect_uri] [varchar](256) NULL,
+	[authorities] [varchar](256) NULL,
+	[access_token_validity] [int] NULL,
+	[refresh_token_validity] [int] NULL,
+	[additional_information] [varchar](4096) NULL,
+	[autoapprove] [varchar](256) NULL,
+ CONSTRAINT [PK__oauth_cl__BF21A4247F60ED59] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_approvals](
+	[userId] [varchar](256) NULL,
+	[clientId] [varchar](256) NULL,
+	[scope] [varchar](256) NULL,
+	[status] [varchar](10) NULL,
+	[expiresAt] [datetime] NULL,
+	[lastModifiedAt] [timestamp] NOT NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[oauth_access_token](
+	[token_id] [nvarchar](max) NULL,
+	[token] [varbinary](max) NULL,
+	[authentication_id] [nvarchar](1500) NOT NULL,
+	[user_name] [nvarchar](max) NULL,
+	[client_id] [nvarchar](max) NULL,
+	[authentication] [varbinary](max) NULL,
+	[refresh_token] [nvarchar](max) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO

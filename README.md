@@ -28,3 +28,10 @@ Response
 ```
 #### to access the resource 
 
+```http://localhost:8080/
+Authorization: Bearer 5cf0732b-6bbb-40c7-8fab-dcfefcc2fcfe
+```
+
+
+
+

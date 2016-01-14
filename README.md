@@ -16,15 +16,15 @@ Run both Auth server and resource server.
 
 #### to get the Auth tokens
 
-'http://localhost:8081/oauth/token/grant_type=client_credentials&client_id=client&client_secret=secret'
+`http://localhost:8081/oauth/token/grant_type=client_credentials&client_id=client&client_secret=secret`
 
 Response 
-'''
+```
 { "access_token"  : "...",
   "token_type"    : "...",
   "expires_in"    : "...",
   "scope"         : "..."
 }
-'''
+```
 #### to access the resource 
 
